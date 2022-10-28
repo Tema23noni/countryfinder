@@ -1,0 +1,160 @@
+body{
+    @apply p-0 m-0 w-full h-full bg-gray-100
+
+}
+
+.br{
+    @apply bg-white  shadow-lg 
+}
+.header{
+    max-width: 1200px;
+    margin: 0 auto;
+    @apply flex font-mono justify-between px-10 py-2  items-center ;
+    .headerText{
+        @apply text-xl tracking-tight;
+    }
+    .changeTheme{
+        @apply cursor-pointer;
+        .themeIcon{
+            @apply bg-contain w-7 h-7;
+        }
+    }
+
+}
+.mainCont{
+    max-width: 1200px;
+    margin: 0 auto;
+    @apply  font-mono  px-10 my-10  ;
+    
+    .sort{
+        @apply flex font-mono justify-between  items-center;
+        .searchCountry{
+            width: 30%;
+            padding: 10px 0 10px 10px;
+            @apply bg-sky-500 hover:bg-sky-600 rounded-3xl ;
+            input{
+                @apply border-none text-white font-medium w-full p-0 placeholder:text-gray-100 ;
+                background: none;
+                border: none;
+                outline: none;
+                font-size: 18px;                
+            }
+        
+        }
+        .searchCountry::before{
+            content: '';
+            background: url('https://img.icons8.com/ios-glyphs/30/000000/search.png')  no-repeat 0 45%/25px 25px;
+            padding: 20px 20px;
+            margin: 0;
+            filter: invert(1);
+        }
+        .searchRegion{
+            @apply px-5 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white border-none outline-none;
+            font-size: 18px;
+            option{
+                background-color:  white;
+                color: black;
+                border: 1px solid white;
+            }
+        }
+
+    }
+}
+.coutryItems{
+    
+    @apply my-10 rounded-lg   scroll-smooth  bg-white p-10 grid  gap-6  items-end xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 ;
+
+    .countryItem{
+        @apply cursor-pointer  overflow-hidden  px-5 hover:bg-gray-100  text-center block ;
+        .scale{
+            @apply inline-block overflow-hidden rounded-xl;
+            .imgCountry{
+                @apply  w-44 h-44  shadow-xl;
+                display: block;
+                transition: 1s;
+                
+            }
+            .imgCountry:hover{
+                transform: scale(1.2);
+            }
+            
+        }
+        
+    }
+}
+.load{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .loader{
+        font-weight: bold;
+        display:inline-block;
+        font-family: monospace;
+        font-size: 30px;
+        clip-path: inset(0 3ch 0 0);
+        animation: preloader 1s steps(4) infinite;
+    }
+    @keyframes preloader {
+        to {
+            clip-path: inset(0 -1ch 0 0)
+          }
+    }
+
+}
+.error{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+
+        font-family: monospace;
+    img{
+        width: 120px;
+
+    }
+}
+.modal{
+    opacity: 0;
+}
+.modal__active{
+    opacity: 1;
+    background-color: rgba(0, 0, 0,0.2);
+    @apply w-full h-full fixed top-0 left-0 ;
+    .modal__cont{
+        @apply p-10 rounded-xl z-10  bg-white opacity-100 w-96;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        .cont__img{
+            @apply flex  justify-between;           
+            .img{
+                border: 1px solid rgba(63, 63, 63, 0.37);
+                @apply rounded-full w-40 h-40 bg-cover  
+            }
+            .close{
+                @apply cursor-pointer w-7 h-7 transition-opacity hover:opacity-70 ease-in-out delay-150
+                }
+        }
+        .content{
+            @apply my-10
+        }
+ 
+    }
+
+}
+
