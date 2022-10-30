@@ -27,18 +27,19 @@ body{
     @apply  font-mono  px-10 my-10  ;
     
     .sort{
-        @apply flex font-mono justify-between  items-center;
+        @apply flex font-mono xl:flex-row md:flex-row sm:flex-row flex-col justify-between items-center ;
         .searchCountry{
-            width: 30%;
+           
             padding: 10px 0 10px 10px;
-            @apply bg-sky-500 hover:bg-sky-600 rounded-3xl ;
+            @apply bg-sky-500 xl:w-2/6 md:w-1/3 sm:w-2/5 w-full  hover:bg-sky-600 rounded-3xl ;
             input{
-                @apply border-none text-white font-medium w-full p-0 placeholder:text-gray-100 ;
+                @apply border-none text-white font-medium  p-0 placeholder:text-gray-100 ;
                 background: none;
                 border: none;
                 outline: none;
                 font-size: 18px;                
             }
+
         
         }
         .searchCountry::before{
@@ -49,7 +50,7 @@ body{
             filter: invert(1);
         }
         .searchRegion{
-            @apply px-5 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white border-none outline-none;
+            @apply px-5 py-2 my-5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white border-none outline-none;
             font-size: 18px;
             option{
                 background-color:  white;
@@ -62,14 +63,14 @@ body{
 }
 .coutryItems{
     
-    @apply my-10 rounded-lg   scroll-smooth  bg-white p-10 grid  gap-6  items-end xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 ;
+    @apply my-10 rounded-lg   scroll-smooth  bg-white p-10 grid  gap-6  items-end xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  ;
 
     .countryItem{
         @apply cursor-pointer  overflow-hidden  px-5 hover:bg-gray-100  text-center block ;
         .scale{
-            @apply inline-block overflow-hidden rounded-xl;
+            @apply inline-block overflow-hidden rounded-xl max-w-md max-h-52 ;
             .imgCountry{
-                @apply  w-44 h-44  shadow-xl;
+                @apply  bg-contain w-full h-full shadow-xl;
                 display: block;
                 transition: 1s;
                 
@@ -135,19 +136,22 @@ body{
     background-color: rgba(0, 0, 0,0.2);
     @apply w-full h-full fixed top-0 left-0 ;
     .modal__cont{
-        @apply p-10 rounded-xl z-10  bg-white opacity-100 w-96;
+        @apply p-10 rounded-xl z-10 flex flex-col justify-center items-center  bg-white opacity-100 w-64;
         position: absolute;
         top:50%;
         left:50%;
         transform: translate(-50%,-50%);
         .cont__img{
-            @apply flex  justify-between;           
+            @apply flex   xl:justify-between md:justify-between sm:justify-between justify-center;           
             .img{
                 border: 1px solid rgba(63, 63, 63, 0.37);
                 @apply rounded-full w-40 h-40 bg-cover  
             }
             .close{
-                @apply cursor-pointer w-7 h-7 transition-opacity hover:opacity-70 ease-in-out delay-150
+                @apply cursor-pointer w-7 h-7 transition-opacity hover:opacity-70 ease-in-out delay-150;
+                position: absolute;
+                top:5%;
+                left: 85%;
                 }
         }
         .content{
@@ -157,4 +161,5 @@ body{
     }
 
 }
+
 
